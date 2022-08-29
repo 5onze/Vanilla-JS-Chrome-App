@@ -11,6 +11,9 @@
 
 body {
   font-family: var(--font-default);
+  color: #fff;
+  font-weight: 300;
+  font-size: 16px;
 }
 
 .container {
@@ -32,11 +35,8 @@ body {
   justify-content: center;
 }
 
-.center {
-}
-
 .background {
-  z-index: 2;
+  z-index: 1;
   position: absolute;
   top: 0;
   left: 0;
@@ -48,6 +48,21 @@ body {
   background-repeat: no-repeat;
   animation: fadein 1s;
 }
+
+.background-overlay {
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url(../img/bgc_base.png);
+  background-size: 100% 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  animation: fadein 1s;
+}
+
 @keyframes fadein {
   from {
     opacity: 0;
@@ -55,6 +70,42 @@ body {
   to {
     opacity: 1;
   }
+}
+
+#clock {
+  font-size: 1050%;
+  letter-spacing: -5px;
+  font-weight: 400;
+  cursor: default;
+  line-height: 1;
+}
+
+#login-form {
+  text-align: center;
+  color: #fff;
+}
+
+.name-input {
+  width: 100%;
+  height: auto;
+  border: 0;
+  border-bottom: 2px solid #fff;
+  background: transparent;
+  outline: none;
+  font-size: 2.25em;
+  line-height: 1.2;
+  caret-color: #fff;
+  text-align: center;
+  color: #fff;
+}
+
+.name-input::placeholder {
+  color: #fff;
+  text-align: center;
+}
+
+.name-input:focus::placeholder {
+  opacity: 0;
 }
 
 h1.hidden {
