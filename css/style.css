@@ -1,38 +1,38 @@
 :root {
   --font-default: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     'Neue Haas Grotesk Text Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --color: #7fafff, #dec1fe, rgba(255, 201, 186, 0.9), rgba(69, 179, 191, 0.9);
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  overflow-wrap: break-word;
+  outline: 0;
+  list-style: none;
+  border: 0;
 }
 
 body {
-  font-family: var(--font-default);
+  font-family: var(--font-default), 'fontello';
   color: #fff;
   font-weight: 300;
   font-size: 16px;
+  overflow: hidden;
 }
-
+button {
+  background: inherit;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0;
+  overflow: visible;
+  cursor: pointer;
+}
 .container {
   width: 100%;
   height: 100vh;
-}
-
-.app {
-  z-index: 3;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }
 
 .background {
@@ -72,45 +72,331 @@ body {
   }
 }
 
+.app {
+  z-index: 3;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.top {
+  display: flex;
+  width: 100%;
+  height: 60px;
+  flex: 0 60px;
+  justify-content: space-between;
+}
+
+#weather {
+  display: flex;
+  flex-direction: column;
+  padding-top: 5px;
+  padding-right: 16px;
+  align-items: end;
+  cursor: default;
+}
+.metric {
+  display: flex;
+  align-items: center;
+}
+.temp-icon {
+  width: 50px;
+  height: 40px;
+  overflow: hidden;
+}
+.temp-icon img {
+  width: 55px;
+  height: 40px;
+  object-fit: cover;
+}
+
+.temp {
+  font-size: 25px;
+  font-weight: 400;
+}
+
+.city {
+  font-size: 1.14em;
+  font-weight: 400;
+  margin-top: -7px;
+  letter-spacing: -1px;
+  color: rgba(255, 255, 255, 0.822);
+}
+
+.clock-greeting {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1 1 40%;
+  justify-content: center;
+}
+
 #clock {
-  font-size: 1050%;
+  font-size: 800%;
   letter-spacing: -5px;
   font-weight: 400;
   cursor: default;
   line-height: 1;
-}
-
-#login-form {
   text-align: center;
-  color: #fff;
 }
 
-.name-input {
+#name-input {
   width: 100%;
   height: auto;
-  border: 0;
   border-bottom: 2px solid #fff;
   background: transparent;
-  outline: none;
-  font-size: 2.25em;
+  font-size: 3em;
   line-height: 1.2;
   caret-color: #fff;
   text-align: center;
   color: #fff;
 }
 
-.name-input::placeholder {
+#name-input::placeholder {
   color: #fff;
   text-align: center;
 }
 
-.name-input:focus::placeholder {
+#name-input:focus::placeholder {
   opacity: 0;
 }
 
-h1.hidden {
-  display: none;
+#greeting {
+  font-size: 3.375em;
+  line-height: 1.2;
+  font-weight: 500;
 }
 
-@media screen and (max-width: 1024px) {
+.hidden {
+  display: none;
+}
+.center {
+  display: flex;
+  flex-wrap: nowrap;
+  flex: 1 1 40%;
+  justify-content: center;
+  width: 100%;
+  gap: 20px;
+}
+/* calendar */
+.calendar {
+  width: 400px;
+  height: 400px;
+  background-color: rgba(255, 255, 255, 0.863);
+  border-radius: 16px;
+  color: black;
+  font-size: 18px;
+}
+
+.calendar-top {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+  padding-bottom: 28px;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.month-year {
+  cursor: default;
+}
+
+.calendar-top button::before {
+  width: 15px;
+  height: 15px;
+  padding: 5px;
+  font-size: 1.2em;
+}
+.prev-month::before {
+  content: '<';
+}
+.next-month::before {
+  content: '>';
+}
+.calendar-days {
+  display: flex;
+  justify-content: space-evenly;
+  font-weight: 400;
+  font-size: 1em;
+  color: #6691db;
+  cursor: default;
+}
+.calendar-days div {
+  width: calc(15em / 7);
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid pink;
+}
+.calendar-date {
+  display: flex;
+  font-size: 1.1em;
+  flex-wrap: wrap;
+  padding: 20px;
+  color: #6691db;
+  gap: 1em 1.39em;
+  font-weight: 300;
+  cursor: default;
+}
+
+.calendar-date div {
+  width: calc(9.84em / 7);
+  height: 1.4em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+.calendar-date div:hover {
+  background-color: rgba(102, 145, 219, 0.7);
+  color: aliceblue;
+}
+
+.today {
+  background-color: pink;
+}
+
+.prev-date {
+  color: grey;
+}
+
+.next-date {
+  color: grey;
+}
+/* todo-list */
+.todo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  justify-content: center;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 201, 186, 0.9),
+    40%,
+    rgba(69, 179, 191, 0.9)
+  );
+  opacity: 1;
+  border-radius: 16px;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px,
+    rgba(17, 17, 26, 0.05) 0px 8px 32px;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.todo-header {
+  padding: 26px 26px 10px 26px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-shadow: rgb(116 116 116 / 60%) 1px 1px 1px;
+}
+
+.todo-question {
+  font-size: 1.7em;
+  font-weight: 300;
+  padding: 5px 10px 10px 10px;
+  cursor: default;
+}
+
+.todo-header div {
+  width: 97%;
+}
+#todo-input {
+  width: 100%;
+  font-size: 1.1em;
+  caret-color: rgb(255, 255, 255);
+  color: #ffffff;
+  padding: 5px 10px;
+  font-weight: 100;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+#todo-input::placeholder {
+  color: #fff;
+}
+
+.todo-content {
+  min-width: 200px;
+  width: 100%;
+  height: 100%;
+  max-width: 500px;
+  padding: 0 0 20px 0;
+}
+
+#todo-list {
+  width: 100%;
+  max-height: 30vh;
+  overflow: auto;
+}
+
+#todo-list li {
+  position: relative;
+  line-height: 1;
+  padding: 12px 30px;
+  border-bottom: 1px solid rgba(127, 175, 255, 0.6);
+  display: flex;
+  align-items: center;
+}
+#todo-list li:last-child {
+  border-bottom: 0;
+}
+
+#todo-list li input {
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+#todo-list li input::after {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #ffffff;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+#todo-list li input:checked::after {
+  background-color: rgba(236, 250, 40, 0.705);
+  border: 0;
+  width: 22px;
+  height: 22px;
+}
+#todo-list li label {
+  padding: 0 10px;
+  font-weight: 400;
+  flex-grow: 2;
+}
+
+#todo-list li input:checked + label {
+  text-decoration: line-through;
+  color: #fbfbdaa3;
+}
+
+#todo-list li button {
+  font-size: 20px;
+  width: 25px;
+  height: 25px;
+  padding: 2px;
+}
+#todo-list li button::before {
+  content: '\e800';
+  font-family: fontello;
+  color: #f83c49cc;
+}
+
+#quote {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  opacity: 0.8;
+  padding-top: 10px;
 }
