@@ -1,0 +1,4 @@
+
+.icon-trash-empty:before { content: '\e800'; } /* '' */
+.icon-check:before { content: '\e801'; } /* '' */
+.icon-check-empty:before { content: '\e802'; } /* '' */
