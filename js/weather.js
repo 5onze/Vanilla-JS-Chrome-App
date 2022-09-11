@@ -16,6 +16,7 @@ function onGeoOk(position) {
       temp.innerText = `${Math.floor(data.main.temp)}°`;
       tempIcon.prepend(img);
       img.src = `http://openweathermap.org/img/wn/${icon}@2x.png`;
+      isLoaded = true;
     });
 }
 function onGeoError() {
