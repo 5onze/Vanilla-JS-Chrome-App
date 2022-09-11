@@ -3,7 +3,7 @@ const API_KEY = '4506ef4e290d6eda0264e94930e5bd60';
 function onGeoOk(position) {
   const lat = position.coords.latitude;
   const lon = position.coords.longitude;
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=Seoul,korea&appid=${API_KEY}&lang=kr&units=metric`;
+  const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&lang=kr&units=metric`;
   fetch(url)
     .then((response) => response.json())
     .then((data) => {
@@ -16,7 +16,6 @@ function onGeoOk(position) {
       temp.innerText = `${Math.floor(data.main.temp)}°`;
       tempIcon.prepend(img);
       img.src = `http://openweathermap.org/img/wn/${icon}@2x.png`;
-      isLoaded = true;
     });
 }
 function onGeoError() {
