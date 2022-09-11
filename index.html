@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="#" />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="./fontello/css/fontello-embedded.css" />
     <title>Momentum app</title>
   </head>
   <body>
@@ -13,30 +14,69 @@
       <div class="background"></div>
       <div class="background-overlay"></div>
       <div class="app">
-        <div class="center">
+        <div class="top">
+          <div class="top-left"></div>
+          <div id="weather">
+            <div class="metric">
+              <div class="temp-icon"></div>
+              <span class="temp"></span>
+            </div>
+            <span class="city"></span>
+          </div>
+        </div>
+        <div class="clock-greeting">
           <h2 id="clock">00:00</h2>
           <form class="hidden" id="login-form">
             <input
-              class="name-input"
+              id="name-input"
               required
               maxlength="15"
               type="text"
               placeholder="What is your name?"
             />
-            <input type="submit" value="Log In" />
+            <input class="hidden" type="submit" value="Log In" />
           </form>
           <h1 class="hidden" id="greeting"></h1>
         </div>
-        <form id="todo-form">
-          <input
-            type="text"
-            placeholder="Write a To Do and Press Enter."
-            required
-          />
-        </form>
-        <ul id="todo-list"></ul>
+        <div class="center">
+          <div class="calendar">
+            <div class="calendar-top">
+              <button class="prev-month"></button>
+              <div class="month-year"></div>
+              <button class="next-month"></button>
+            </div>
+            <div class="calendar-days">
+              <div>Sun</div>
+              <div>Mon</div>
+              <div>Tue</div>
+              <div>Wed</div>
+              <div>Thu</div>
+              <div>Fri</div>
+              <div>Sat</div>
+            </div>
+            <div class="calendar-date"></div>
+          </div>
+          <div class="todo-container">
+            <div class="todo-header">
+              <h3 class="todo-question">What is your main focus for today?</h3>
+              <div>
+                <form id="todo-form" autocomplete="off">
+                  <input
+                    id="todo-input"
+                    type="text"
+                    placeholder="add task.."
+                    required
+                  />
+                </form>
+              </div>
+            </div>
+            <div class="todo-content">
+              <ul id="todo-list"></ul>
+            </div>
+          </div>
+        </div>
+
         <div id="quote"><span></span><span></span></div>
-        <div id="weather"><span></span><span></span></div>
       </div>
     </div>
     <script src="js/greetings.js"></script>
@@ -45,5 +85,6 @@
     <script src="js/background.js"></script>
     <script src="js/todo.js"></script>
     <script src="js/weather.js"></script>
+    <script src="js/calendar.js"></script>
   </body>
 </html>
