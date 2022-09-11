@@ -1,6 +1,7 @@
 const toDoForm = document.querySelector('#todo-form');
 const toDoInput = toDoForm.querySelector('input');
-const toDoList = document.querySelector('ul#todo-list');
+const toDoList = document.querySelector('#todo-list');
+const toDoTitle = document.querySelector('#todo-title');
 
 const TODOS_KEY = 'todos';
 
@@ -23,14 +24,21 @@ function deleteToDo(event) {
 function paintToDo(newTodo) {
   const li = document.createElement('li');
   li.id = newTodo.id;
-  const span = document.createElement('span');
-  span.innerText = newTodo.text;
+  const checkbox = document.createElement('input');
+  checkbox.type = 'checkbox';
+  const label = document.createElement('label');
+  label.innerText = newTodo.text;
   const button = document.createElement('button');
-  button.innerText = '❌';
+  button.innerText = '';
   button.addEventListener('click', deleteToDo);
-  li.appendChild(span);
+  li.appendChild(checkbox);
+  li.appendChild(label);
   li.appendChild(button);
   toDoList.appendChild(li);
+}
+
+if (toDoList.innerHTML === null) {
+  toDoList.innerHTML = `<li>empty</li>`;
 }
 
 //todolist submit 값
