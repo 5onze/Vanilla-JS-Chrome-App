@@ -1,22 +1,23 @@
 const calendarDate = document.querySelector('.calendar-date');
-
 const date = new Date();
+
+const CLASS_CLICKED = 'clicked';
 
 function calendarHandle() {
   date.setDate(1);
   const months = [
-    'January',
-    'February',
-    'Marrch',
-    'April',
-    'May',
-    'Jun',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
+    '1',
+    '2',
+    '3',
+    '4',
+    '5',
+    '6',
+    '7',
+    '8',
+    '9',
+    '10',
+    '11',
+    '12',
   ];
 
   const lastDay = new Date(
@@ -40,7 +41,8 @@ function calendarHandle() {
 
   const nextDays = 7 - lastDayIndex - 1;
 
-  document.querySelector('.month-year').innerText = months[date.getMonth()];
+  document.querySelector('.month').innerText = months[date.getMonth()];
+  document.querySelector('.date p').innerText = new Date().toDateString();
 
   let days = '';
 
@@ -56,9 +58,9 @@ function calendarHandle() {
       i === new Date().getDate() &&
       date.getMonth() === new Date().getMonth()
     ) {
-      days += `<div class="today">${i}</div>`;
+      days += `<div class="today item">${i}</div>`;
     } else {
-      days += `<div>${i}</div>`;
+      days += `<div class="item">${i}</div>`;
     }
   }
 
@@ -67,8 +69,20 @@ function calendarHandle() {
     days += `<div class="next-date">${j}</div>`;
     calendarDate.innerHTML = days;
   }
-}
 
+  // 달력 날짜 클릭해서 선택
+  calendarDate.addEventListener('click', (e) => {
+    // 기존 선택일이 존재하는 경우 기존 선택일의 표시형식을 초기화
+    if (document.getElementsByClassName(CLASS_CLICKED)[0]) {
+      document
+        .getElementsByClassName(CLASS_CLICKED)[0]
+        .classList.remove(CLASS_CLICKED);
+    }
+    if (e.target.classList.contains('item')) {
+      e.target.classList.add(CLASS_CLICKED);
+    }
+  });
+}
 // 버튼 클릭 기능
 document.querySelector('.prev-month').addEventListener('click', () => {
   date.setMonth(date.getMonth() - 1);
