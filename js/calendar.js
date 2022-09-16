@@ -41,7 +41,7 @@ function calendarHandle() {
 
   const nextDays = 7 - lastDayIndex - 1;
 
-  document.querySelector('.month').innerText = months[date.getMonth()];
+  document.querySelector('.month').innerHTML = months[date.getMonth()];
   document.querySelector('.date p').innerText = new Date().toDateString();
 
   let days = '';
