@@ -7,6 +7,10 @@
     <link rel="shortcut icon" href="#" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="./fontello/css/fontello-embedded.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
     <title>Momentum app</title>
   </head>
   <body>
@@ -41,9 +45,12 @@
         <div class="center">
           <div class="calendar">
             <div class="calendar-top">
-              <button class="prev-month"></button>
-              <div class="month-year"></div>
-              <button class="next-month"></button>
+              <i class="prev-month fa-solid fa-angle-left"></i>
+              <div class="date">
+                <div class="month"></div>
+                <p></p>
+              </div>
+              <i class="next-month fa-solid fa-angle-right"></i>
             </div>
             <div class="calendar-days">
               <div>Sun</div>
