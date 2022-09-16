@@ -15,7 +15,7 @@
 }
 
 body {
-  font-family: var(--font-default), 'fontello';
+  font-family: var(--font-default);
   color: #fff;
   font-weight: 300;
   font-size: 16px;
@@ -188,7 +188,6 @@ button {
 /* calendar */
 .calendar {
   width: 400px;
-  height: 400px;
   background-color: rgba(255, 255, 255, 0.863);
   border-radius: 16px;
   color: black;
@@ -197,29 +196,45 @@ button {
 
 .calendar-top {
   display: flex;
-  justify-content: center;
-  padding-top: 20px;
-  padding-bottom: 28px;
+  padding-top: 18px;
+  padding-bottom: 17px;
   justify-content: space-around;
   align-items: center;
 }
 
-.month-year {
+.date {
+  text-align: center;
   cursor: default;
 }
 
-.calendar-top button::before {
-  width: 15px;
-  height: 15px;
-  padding: 5px;
-  font-size: 1.2em;
+.month {
+  font-weight: 700;
+  font-size: 1.6em;
+  color: #f8788f;
 }
-.prev-month::before {
-  content: '<';
+.date p {
+  font-size: 0.9em;
+  font-weight: 400;
+  color: grey;
 }
-.next-month::before {
-  content: '>';
+.prev-month,
+.next-month {
+  cursor: pointer;
+  color: grey;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding-top: 5px;
 }
+.prev-month:hover {
+  padding-right: 8px;
+  transition: 0.2s;
+}
+.next-month:hover {
+  padding-left: 8px;
+  transition: 0.2s;
+}
+
 .calendar-days {
   display: flex;
   justify-content: space-evenly;
@@ -237,40 +252,42 @@ button {
 }
 .calendar-date {
   display: flex;
-  font-size: 1.1em;
+  font-size: 1em;
   flex-wrap: wrap;
-  padding: 20px;
+  padding: 5px;
   color: #6691db;
-  gap: 1em 1.39em;
   font-weight: 300;
   cursor: default;
 }
 
 .calendar-date div {
-  width: calc(9.84em / 7);
-  height: 1.4em;
+  width: calc(13.18em / 7);
+  height: 1.78em;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
+  margin: 6px 10.6px;
 }
 
 .calendar-date div:hover {
-  background-color: rgba(102, 145, 219, 0.7);
-  color: aliceblue;
+  background-color: rgba(40, 131, 250, 0.7);
+  color: rgb(240, 240, 240);
 }
-
+.clicked {
+  background-color: rgba(40, 131, 250, 0.7);
+  color: rgb(240, 240, 240);
+}
 .today {
-  background-color: pink;
+  background-color: rgba(253, 100, 120, 0.705);
+  color: #fff;
 }
 
-.prev-date {
-  color: grey;
-}
-
+.prev-date,
 .next-date {
   color: grey;
 }
+
 /* todo-list */
 .todo-container {
   display: flex;
