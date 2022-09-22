@@ -29,7 +29,8 @@
           </div>
         </div>
         <div class="clock-greeting">
-          <h2 id="clock">00:00</h2>
+          <h2 id="clock"></h2>
+          <h3 id="clock-date"></h3>
           <form class="hidden" id="login-form">
             <input
               id="name-input"
@@ -82,8 +83,32 @@
             </div>
           </div>
         </div>
-
-        <div id="quote"><span></span><span></span></div>
+        <div class="bottom-row">
+          <div class="music-container" id="music-container">
+            <div class="music-info">
+              <h4 id="music-title"></h4>
+              <div class="progress-container" id="progress-container">
+                <div class="progress" id="progress"></div>
+              </div>
+            </div>
+            <audio src="music/ukulele.mp3" id="audio"></audio>
+            <div class="img-container">
+              <img src="img/ukulele.jpg" alt="music-cover" id="music-cover" />
+            </div>
+            <div class="navigation">
+              <button id="music-prev" class="action-btn">
+                <i class="fas fa-backward"></i>
+              </button>
+              <button id="music-play" class="action-btn action-btn-big">
+                <i class="fas fa-play"></i>
+              </button>
+              <button id="music-next" class="action-btn">
+                <i class="fas fa-forward"></i>
+              </button>
+            </div>
+          </div>
+          <div id="quote"><span></span><span></span></div>
+        </div>
       </div>
     </div>
     <script src="js/greetings.js"></script>
@@ -93,5 +118,6 @@
     <script src="js/todo.js"></script>
     <script src="js/weather.js"></script>
     <script src="js/calendar.js"></script>
+    <script src="js/player.js"></script>
   </body>
 </html>
